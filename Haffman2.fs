@@ -1,5 +1,7 @@
 module Huffman
 
+open System
+
 type CodeTree = 
   | Fork of left: CodeTree * right: CodeTree * chars: char list * weight: int
   | Leaf of char: char * weight: int
@@ -65,19 +67,33 @@ let makeCodeTree left right = Fork(left, right, chars left @ chars right, weight
 let string2chars str = Seq.toList str
 
 let times (list:char list) : (char * int) list = 
-    let addElem x list =
-        let rec addElem' x list list1 =
-            match list with
-            | [] -> (x, 1) :: list
-            | (key, value) :: tl -> if x = key then list1 @ ((key, value + 1) :: tl)
-                                    else addElem' x tl ((key, value) :: list)
-        addElem' x list []
-         
-    let rec times' list =
+    let newlist = List.sort list
+    
+    let rec times' list list1 ch v =
+        match list with 
+        | [] -> (ch, v) :: list1
+        | hd :: tl -> if hd = ch then times' tl list1 ch (v+1)
+                      else times' tl ((ch, v) :: list1) hd 1
+
+    times' newlist.Tail [] newlist.Head 1
+
+let makeOrderedLeafList list = 
+    let newlist = List.sortBy (fun (k,v) -> v) list
+
+    let rec make list =
         match list with
         | [] -> []
-        | hd :: tl -> addElem hd (times' tl)
+        | (k,v) :: tl -> Leaf(k,v) :: (make tl)
 
-    times' list
+    make newlist
 
-printfn "%A" (times ['b'; 'a'; 'c'])
+let singltone (list : CodeTree list) : bool = List.length list = 1
+
+let rec combine (list: CodeTree list) : CodeTree list =
+    if not (singltone list) then
+        match list with
+        | x :: y :: tl ->
+            let un = Fork (x, y, (chars x) @ (chars y), weight x + weight y) :: tl
+            combine (List.sortBy (function | Fork (_, _, _, x) -> x | Leaf (_, x) -> x) un)
+        | _ -> failwith "Error"
+    else list
