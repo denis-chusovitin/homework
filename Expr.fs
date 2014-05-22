@@ -13,13 +13,12 @@ let rec simpl expr =
     match expr with
     | Add (Const x, Const y) -> Const (x + y)
     | Add (exp, Const 0) | Add (Const 0, exp) -> simpl exp
-    | Sub (Var _, Var _) -> Const 0
-    | Mul (_, Const 0) | Sub (Const 0, _) -> Const 0
-    | Mul (exp, Const 1) | Sub (Const 1, exp) -> simpl exp
+    | Sub (Var x, Var y) -> if x = y then Const 0
+                            else Sub (Var x, Var y)
+    | Mul (_, Const 0) | Mul (Const 0, _) -> Const 0
+    | Mul (exp, Const 1) | Mul (Const 1, exp) -> simpl exp
     | Div (exp, Const 1) -> simpl exp
     | _ -> expr
 
-let res = simpl (Mul ((Add (Var "x", Const 0)), Const 1))
 
-printfn "%A" res
 
