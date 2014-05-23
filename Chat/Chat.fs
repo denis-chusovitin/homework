@@ -36,38 +36,3 @@ let rec chat() =
     frm.SetDesktopLocation(100, 100)
  
 chat()
-
-
-(*
-let printResult xy = 
-    let frm = new Form()
-    let tb = new Label(Text = sprintf "Result = %A" xy)
-    let btOk = new Button(Text="Ok", Top = 100)
-    btOk.Click.Add (fun _ -> frm.Close())
-    frm.Controls.AddRange [| tb; btOk |]
-    frm.Show()
-
-let readY x = 
-    let frm = new Form()
-    let tb = new TextBox(Text = "1")
-    let btOk = new Button(Text="Ok", Top = 100)
-    btOk.Click.Add (fun _ -> let y = int tb.Text
-                             frm.Close()
-                             printResult  <| x + y)
-    frm.Controls.AddRange [| tb; btOk |]
-    frm.Show()
-
-let readX () = 
-    let frm = new Form()
-    let tb = new TextBox(Text = "1")
-    let btOk = new Button(Text="Ok", Top = 100)
-    btOk.Click.Add (fun _ -> let x = int tb.Text
-                             frm.Close()
-                             readY x
-                             )
-    frm.Controls.AddRange [| tb; btOk |]
-    frm.Show()
-
-
-readX()
-*)
