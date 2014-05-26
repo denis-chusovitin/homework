@@ -1,16 +1,10 @@
 ﻿//Chusovitin Denis Copyrights (c) 2014
-//
+//OOP
 
 [<AbstractClass>]
 type Named(name:string) =
     member this.Name = name
     abstract member SetName : string -> unit
-
-let rec ifElemInList list value = 
-    match list with
-    | [] -> false
-    | hd :: tl -> if (hd = value) then true
-                  else ifElemInList tl value
 
 type Satellite(name:string, mass:int, speed:int) =
     let mutable speed = speed
@@ -24,12 +18,7 @@ type Planet(name:string, star:StarSystem, satellites:Satellite list) =
     member this.Star = star
     member this.Destroy() =
         exist <- false
-        let rec pl (satellites:Satellite list)  =
-            match satellites with 
-            | [] -> []
-            | hd :: tl -> new Planet(hd.Name, star, []) :: pl tl
-
-        star.AddPlanets (pl satellites)
+        star.AddPlanets (List.map  (fun (x: Satellite) -> new Planet(x.Name, star, [])) satellites)
         
     member this.AddSatellite(x:Satellite) = satellites <- x :: satellites
 
@@ -55,13 +44,15 @@ type SpaceShip(name:string, fuel:int, strength:int, star:StarSystem, planet:Plan
     member this.Repair(x:int) = strength <- strength + x
     member this.Pour(x:int) = fuel <- fuel + x
     member this.MoveToPlanet(x:Planet) = 
-        if (fuel > 1) && (ifElemInList star.Planets x) then 
+        if (fuel > 1) && (List.exists (fun y -> y = x) star.Planets) then 
             fuel <- fuel - 1
             planet <- x
+        else printfn "%A" "low fuel"
     member this.MoveToStarSystem(x:StarSystem) =
         if fuel > 10 then
             fuel <- fuel - 10
             star <- x 
+        else printfn "%A" "low fuel"
           
     override this.SetName newname = name <- newname
 
