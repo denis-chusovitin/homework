@@ -5,34 +5,29 @@ module Web
 
 open WebR
 
-let cmp k v img = if k = img then (k, v + 1)
-                  else (k, v)
-
-let findImg site =
-    let rec findImg' (site: string) list =
-        let k = site.IndexOf("<img")
-        if k <> -1 then let strbeg = k + 11
-                        let strend = site.IndexOf("\"")
-                        let img = site.Substring(strbeg, strend - strbeg) 
-                        if List.exists (fun (k, v) -> k = img) list then findImg' (site.Remove(0, strend)) (List.map (fun (k, v) -> cmp k v img) list)                                                                                                           
-                        else findImg' (site.Remove(0, strend)) ((img, 1) :: list) 
-        else []
-    findImg' site []
-
-let rec print list =
-    if List.length list > 5 then match list with 
-                                 | [] -> ()
-                                 | (k, v) :: tl -> if v = 1 then printfn "%A\n" k
-                                                   print tl
-let printimg site = print (findImg site)
-
-let rec web sitelist f =
-    match sitelist with
-    | [] -> ()
-    | hd :: tl -> getUrl hd f 
-                  web tl f
-                  
-
-web ["https://vk.com"; "https://github.com"; "https://google.com"] printimg
+let count site =
+    let rec count' (site: string) (pos: int) =
+        let k = site.IndexOf("<img", pos)
+        if k <> -1 then 1 + count' site (k + 1)
+                   else 0 
+    count' site 0
     
-System.Console.ReadLine() |> ignore
+let rec getimg site =
+    let rec getimg' (site: string) (pos: int) =
+        let k = site.IndexOf("<img", pos)
+        if k <> -1 then let strbeg = site.IndexOf("src=", k + 4)
+                        let strend = site.IndexOf("\"", strbeg + 5)
+                        let len = strend - strbeg
+                        site.Substring(strbeg + 5, len) :: (getimg' site strend)
+        else []
+    if (count site) > 5 then getimg' site 0
+    else []
+
+let rec web list f =
+    match list with
+    | [] -> f []
+    | hd :: tl -> getUrl hd (fun x -> web tl (fun y -> f << Seq.toList << Seq.distinct <| getimg x @ y))
+
+web ["https://www.google.ru/"; "http://www.youtube.com/";"https://www.vk.com/"] (printfn"%A")
+    
+System.Console.ReadLine() |> ignore 
