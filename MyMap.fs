@@ -183,13 +183,12 @@ type Mymap<'key, 'value  when 'key: comparison and 'value: equality>private(tree
         | _ -> false
 
    new(x: seq<'key * 'value>) = 
-       let tree = ref Tree.Empty
-       let rec add' l =  match l with
-                         | [] -> tree
-                         | (a, b) :: tl -> tree := add (!tree) a b
-                                           add' tl
-                                                  
-       Mymap<_, _>(!(add' (Seq.toList x)))
+       let t = ref Tree.Empty
+       let add' list = 
+           List.fold (fun acc (a, b) -> t := add (!t) a b
+                                        (!t)
+                      ) (!t) list
+       Mymap<_,_>(add' (Seq.toList x))
 
    end
 
