@@ -58,12 +58,12 @@ let rec private removeleaf tree =
 
 let rec add tree key value = 
            match tree with
-           | Fork(l, r, k, v, hl, hr) -> if key < k then if hl = 0 then Fork(Fork(Empty, Empty, key, value, 0, 0), r, k, v, hl + 1, hr) 
+           | Fork(l, r, k, v, hl, hr) -> if key < k then if hl = 0 then Fork(Fork(Empty, Empty, key, value, 0, 0), r, k, v, 1, hr) 
                                                          else let t = add l key value
                                                               let t' = Fork(t, r, k, v, getheight t, hr)
                                                               if abs(getheight t - hr) = 2 then balance t'
                                                               else t'
-                                         else if hr = 0 then Fork(l, Fork(Empty, Empty, key, value, 0, 0), k, v, hl + 1, hr) 
+                                         else if hr = 0 then Fork(l, Fork(Empty, Empty, key, value, 0, 0), k, v, hl, 1) 
                                                         else let t = add r key value
                                                              let t' = Fork(l, t, k, v, hl, getheight t)
                                                              if abs(getheight t - hl) = 2 then balance t'
@@ -149,13 +149,13 @@ type Mymap<'key, 'value  when 'key: comparison and 'value: equality>private(tree
                                                               if abs(getheight t - hl) = 2 then balance t'
                                                               else t' 
                                               else if (hl = hr) && (hl = 0) then Empty
-                                                   else if hr > 0 then let (k1 ,v1) =  getleaf tree
+                                                   else if hr > 0 then let (k1 ,v1) =  getleaf r
                                                                        let t = removeleaf r
                                                                        Fork(l, t, k1, v1, getheight l , getheight t)
                                                         else l                          
            | Empty -> failwith "Error"
 
-       remove tree key
+       new Mymap<_,_>(remove tree key)
 
    member private this.GetEnumerator() = getEnumerator(tree)
    interface IEnumerable<'key * 'value> with
@@ -170,7 +170,17 @@ type Mymap<'key, 'value  when 'key: comparison and 'value: equality>private(tree
            | Empty -> "Empty"
        string tree
 
-   override this.Equals x = x.Equals this
+   override this.GetHashCode() =
+        let rec hash tree =
+            match tree with
+            | Fork(l, r, k, v, _, _) -> k.GetHashCode() * v.GetHashCode() * (hash l) * (hash r) % Int32.MaxValue
+            | Empty -> 1
+        hash tree
+
+   override this.Equals x = 
+        match x with 
+        | :? Mymap<'key, 'value> as map -> this.Count = map.Count && Seq.forall2 (=) this map
+        | _ -> false
 
    new(x: seq<'key * 'value>) = 
        let tree = ref Tree.Empty
@@ -182,4 +192,5 @@ type Mymap<'key, 'value  when 'key: comparison and 'value: equality>private(tree
        Mymap<_, _>(!(add' (Seq.toList x)))
 
    end
+
 
