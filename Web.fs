@@ -4,6 +4,7 @@
 module Web
 
 open WebR
+open CPSmap
 
 let count site =
     let rec count' (site: string) (pos: int) =
@@ -22,12 +23,9 @@ let rec getimg site =
         else []
     if (count site) > 5 then getimg' site 0
     else []
+    
+let web list f = map list getUrl (fun x -> Seq.map (fun y -> getimg y) x |> Seq.distinct |> Seq.concat |> Seq.toList |> f)
 
-let rec web list f =
-    match list with
-    | [] -> f []
-    | hd :: tl -> getUrl hd (fun x -> web tl (fun y -> f << Seq.toList << Seq.distinct <| getimg x @ y))
-
-web ["https://www.google.ru/"; "http://www.youtube.com/";"https://www.vk.com/"] (printfn"%A")
+web ["https://www.google.ru/"; "http://www.youtube.com/";"https://www.vk.com/"] (printfn "%A")
     
 System.Console.ReadLine() |> ignore 
