@@ -7,46 +7,46 @@ open NUnit.Framework
 type Tests() =
     [<Test>]
     member x.Test1() = 
-        Assert.AreEqual(regexp "qwerty123@soap.com", true, "error")
+        Assert.IsTrue(isEmail "qwerty123@soap.com", "error")
     [<Test>]
     member x.Test2() = 
-        Assert.AreEqual(regexp "qw.ert.y123@so.ap.com", true, "error")
+        Assert.IsTrue(isEmail "qw.ert.y123@so.ap.com", "error")
     [<Test>]
     member x.Test3() = 
-        Assert.AreEqual(regexp "123qwerty123@soap.com", false, "error")
+        Assert.IsFalse(isEmail "123qwerty123@soap.com", "error")
     [<Test>]
     member x.Test4() = 
-        Assert.AreEqual(regexp "qwe..rty123@soap.com", false, "error")
+        Assert.IsFalse(isEmail "qwe..rty123@soap.com", "error")
     [<Test>]
     member x.Test5() = 
-        Assert.AreEqual(regexp "qwerty123soap.com", false, "error")
+        Assert.IsFalse(isEmail "qwerty123soap.com", "error")
     [<Test>]
     member x.Test6() = 
-        Assert.AreEqual("a@b.cc", true, "error")
+        Assert.IsTrue(isEmail "a@b.cc", "error")
     [<Test>]
     member x.Test7() = 
-        Assert.AreEqual("vasya.pupkun@soap.com", true, "error")
+        Assert.IsTrue(isEmail "vasya.pupkun@soap.com", "error")
     [<Test>]
     member x.Test8() = 
-        Assert.AreEqual("my@domain.info", true, "error")
+        Assert.IsTrue(isEmail "my@domain.info", "error")
     [<Test>]
     member x.Test9() = 
-        Assert.AreEqual("_.1@mail.com", true, "error")
+        Assert.IsTrue(isEmail "_.1@mail.com", "error")
     [<Test>]
     member x.Test10() = 
-        Assert.AreEqual("paints_department@hermitage.museum", true, "error")
+        Assert.IsTrue(isEmail "paints_department@hermitage.museum", "error")
     [<Test>]
     member x.Test11() = 
-        Assert.AreEqual("a@b.c", false, "error")
+        Assert.IsFalse(isEmail "a@b.c", "error")
     [<Test>]
     member x.Test12() = 
-        Assert.AreEqual("a..b@mail.ru", false, "error")
+        Assert.IsFalse(isEmail "a..b@mail.ru", "error")
     [<Test>]
     member x.Test13() = 
-        Assert.AreEqual(".a@mail.ru", false, "error")
+        Assert.IsFalse(isEmail ".a@mail.ru", "error")
     [<Test>]
     member x.Test14() = 
-        Assert.AreEqual("yo@domain.somedomain", false, "error")
+        Assert.IsFalse(isEmail "yo@domain.somedomain", "error")
     [<Test>]
     member x.Test15() = 
-        Assert.AreEqual("1@mail.ru", false, "error")
+        Assert.IsFalse(isEmail "1@mail.ru", "error")

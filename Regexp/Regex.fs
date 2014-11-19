@@ -5,5 +5,5 @@ module Regex
 
 open System.Text.RegularExpressions
 
-let regexp s  = Regex("[_a-zA-Z]+(\.\w+)*@([a-zA-Z]+\.)+([a-zA-Z]{2,4}|museum|travel)$").Replace(s, "") = ""
+let isEmail = Regex("^[_a-zA-Z]([.]?(\w)+)*[@]([a-zA-Z]+\.)+([a-zA-Z]{2,4}|museum|travel)$").IsMatch
 
