@@ -1,0 +1,9 @@
+c:\users\администратор\documents\visual studio 2013\Projects\Cloudy\Cloudy\bin\Debug\Cloudy.exe.config
+c:\users\администратор\documents\visual studio 2013\Projects\Cloudy\Cloudy\bin\Debug\Cloudy.XML
+c:\users\администратор\documents\visual studio 2013\Projects\Cloudy\Cloudy\bin\Debug\Cloudy.exe
+c:\users\администратор\documents\visual studio 2013\Projects\Cloudy\Cloudy\bin\Debug\Cloudy.pdb
+c:\users\администратор\documents\visual studio 2013\Projects\Cloudy\Cloudy\bin\Debug\FSharp.Core.dll
+c:\users\администратор\documents\visual studio 2013\Projects\Cloudy\Cloudy\bin\Debug\FSharp.Core.xml
+c:\users\администратор\documents\visual studio 2013\Projects\Cloudy\Cloudy\bin\Debug\ru\FSharp.Core.resources.dll
+c:\users\администратор\documents\visual studio 2013\Projects\Cloudy\Cloudy\obj\Debug\Cloudy.exe
+c:\users\администратор\documents\visual studio 2013\Projects\Cloudy\Cloudy\obj\Debug\Cloudy.pdb

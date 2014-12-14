@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Cloudy", "Cloudy\Cloudy.fsproj", "{06B90991-AA42-4BDC-B71D-8F65AE736FA5}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Test", "Test\Test.fsproj", "{9A9EC4E8-51B8-43D5-8BAD-57A6298C60CD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{06B90991-AA42-4BDC-B71D-8F65AE736FA5} = {06B90991-AA42-4BDC-B71D-8F65AE736FA5}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06B90991-AA42-4BDC-B71D-8F65AE736FA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06B90991-AA42-4BDC-B71D-8F65AE736FA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06B90991-AA42-4BDC-B71D-8F65AE736FA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06B90991-AA42-4BDC-B71D-8F65AE736FA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A9EC4E8-51B8-43D5-8BAD-57A6298C60CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A9EC4E8-51B8-43D5-8BAD-57A6298C60CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A9EC4E8-51B8-43D5-8BAD-57A6298C60CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A9EC4E8-51B8-43D5-8BAD-57A6298C60CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
