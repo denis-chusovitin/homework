@@ -1,0 +1,5 @@
+ConvexQuadrilaterals\bin\Release\ConvexQuadrilaterals.dll
+Tests\bin\Release\Tests.dll
+Tests\bin\Release\ConvexQuadrilaterals.dll
+GUI\bin\Release\GUI.exe
+GUI\bin\Release\ConvexQuadrilaterals.dll
