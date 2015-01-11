@@ -31,4 +31,3 @@ if "%correctFail%"=="true" (
 call email
 
 echo Done.
-pause
