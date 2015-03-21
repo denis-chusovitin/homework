@@ -1,0 +1,17 @@
+﻿@using WebChat.Models
+@model ChatModel
+
+@Ajax.ActionLink("ActionLink", "Index", new { user = "", logOn = "", message = "" },
+new AjaxOptions { UpdateTargetId = "RefreshArea"},
+new { @id = "ActionLink", @style = "visibility:hidden;" })
+
+<div id="inputForm">
+    <textarea id="txtMessage" rows="3"></textarea>
+    <button id="btnMessage">Отправить</button>
+</div>
+
+<div id="RefreshArea">
+    @{
+        Html.RenderPartial("History", Model);
+    }
+</div>

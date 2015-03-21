@@ -1,0 +1,9 @@
+﻿@using WebChat.Models
+@model ChatModel
+
+<div id="Messages">
+    @foreach (Message msg in Model.Messages)
+    {
+        <p><b>@(msg.User.Name + ":")</b> @msg.Text</p>
+    }
+</div>

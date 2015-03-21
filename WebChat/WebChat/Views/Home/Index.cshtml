@@ -1,0 +1,29 @@
+﻿@model WebChat.Models.ChatModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Chat</title>
+</head>
+<body>
+    <div id="Username">
+    </div>
+    <div id="container">
+        Введите имя :
+        <input type="text" id="txtUsername" />
+        <button id="btnLogin">Войти</button>        
+    </div>
+    @Ajax.ActionLink("Login", "Index", new { user = "" },
+        new AjaxOptions { UpdateTargetId = "container", OnSuccess = "LoginOn" },
+        new { @id = "LoginButton", @style = "visibility:hidden;" })
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
+    @Scripts.Render("~/Scripts/chat.js")
+</body>
+</html>
+
