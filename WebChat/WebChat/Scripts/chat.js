@@ -1,4 +1,11 @@
 ﻿$(document).ready(function () {
+    $('#txtUsername').keydown(function (e) {
+        if (e.keyCode == 13) {
+            e.preventDefault();
+            $("#btnLogin").click();
+        }
+    });
+
     $("#btnLogin").click(function () {
         var username = $("#txtUsername").val();
         if (username) {
@@ -14,6 +21,13 @@
 function LoginOn(result) {
 
     setTimeout("Refresh();", 5000);
+
+    $('#txtMessage').keydown(function (e) {
+        if (e.keyCode == 13) {
+            e.preventDefault();
+            $("#btnMessage").click();
+        }
+    });
 
     $("#btnMessage").click(function () {
         var text = $("#txtMessage").val();

@@ -8,12 +8,13 @@
 <head>
     <meta charset="utf-8" />
     <title>Chat</title>
+    @Styles.Render("~/Content/Site.css")
 </head>
 <body>
-    <div id="Username">
-    </div>
+    <span class="username" id="Username">
+    </span>
     <div id="container">
-        Введите имя :
+        <h3>Введите имя:</h3>
         <input type="text" id="txtUsername" />
         <button id="btnLogin">Войти</button>        
     </div>
