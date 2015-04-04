@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="baa1a06c-00af-46a0-9b5f-0ab5458ff50e" ChangeDateTime="04/01/2015 15:23:38">
+    <Property Name="ElementName" Value="[dbo].[Client].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Client]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdClient" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="85dac7e6-7dd9-4977-adf6-1193bdbf1257" ChangeDateTime="04/01/2015 15:26:05">
+    <Property Name="ElementName" Value="[dbo].[Booking].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdBooking" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e0094752-a21c-49e8-a5f1-e74e70b38c0b" ChangeDateTime="04/01/2015 15:28:56">
+    <Property Name="ElementName" Value="[dbo].[Booking].[We]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Weight" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="29008443-13c3-4b38-bad8-4c689ca01af1" ChangeDateTime="04/01/2015 16:48:01">
+    <Property Name="ElementName" Value="[dbo].[Client].[IdClient]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Client]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f3d8a1ae-1273-4594-aff7-466f4e6d6482" ChangeDateTime="04/01/2015 16:48:12">
+    <Property Name="ElementName" Value="[dbo].[Booking].[IdBooking]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a7ac3ab1-3a67-428d-85b1-0ae9b555fa41" ChangeDateTime="04/01/2015 17:01:24">
+    <Property Name="ElementName" Value="[dbo].[DownloadContainer].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[DownloadContainer]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Stamp" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8ef5d26e-6010-4cbb-921c-9a61cb96ea9d" ChangeDateTime="04/01/2015 17:04:53">
+    <Property Name="ElementName" Value="[dbo].[Ship].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Ship]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Name" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a5ece35d-64bc-465c-9313-1936ee63ce23" ChangeDateTime="04/01/2015 17:08:14">
+    <Property Name="ElementName" Value="[dbo].[Ship].[Output]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Ship]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OutputPort" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1dcee4a3-786f-496a-b108-87005ccd3f93" ChangeDateTime="04/01/2015 17:08:17">
+    <Property Name="ElementName" Value="[dbo].[Ship].[Input]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Ship]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="InputPort" />
+  </Operation>
+</Operations>
