@@ -3,6 +3,5 @@
 	[Id] INT NOT NULL IDENTITY (1,1) PRIMARY KEY, 
     [Type] NCHAR(50) NULL, 
     [Weight] INT NULL, 
-    [Volume] INT NULL, 
-	[IsUsed] BIT NOT NULL
+    [Volume] INT NULL
 )

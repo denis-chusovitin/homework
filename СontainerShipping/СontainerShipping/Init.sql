@@ -16,15 +16,15 @@ insert into dbo.[Booking] ([Date], [Name], [Weight], [Volume], [Cost], [IdClient
 
 GO
 
-insert into dbo.[Container] ([Type], [Weight], [Volume], [IsUsed]) values 
-('Tank', '12', '1', '1'),
-('Tank', '234', '2', '1'),
-('Open', '76', '3', '1'),
-('Open', '4', '4', '1'),
-('DC', '324', '435', '1'),
-('DC', '324', '435', '1'),
-('Empty', '23', '23', '0'),
-('Empty', '77', '73', '0')
+insert into dbo.[Container] ([Type], [Weight], [Volume]) values 
+('Tank', '12', '1'),
+('Tank', '234', '2'),
+('Open', '76', '3'),
+('Open', '4', '4'),
+('DC', '324', '435'),
+('DC', '324', '435'),
+('Empty', '23', '23'),
+('Empty', '77', '73')
 
 GO
 
@@ -39,8 +39,9 @@ GO
 
 insert into dbo.[DownloadContainer] ([Weight], [IdContainer], [IdBooking], [IdShip]) values 
 ('24', '1', '1', '1'),
-('334', '2', '2', '1'),
-('210', '3', '2', '2'),
+('468', '2', '2', '1'),
+('76', '3', '2', '2'),
 ('1527', '4', '3', '3'),
 ('780', '5', '4', '4'),
-('648', '6', '5', '5')
+('648', '6', '5', '5'),
+('23', '7', '1', '1')

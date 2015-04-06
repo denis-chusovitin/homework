@@ -15,7 +15,7 @@ select d.Id from [DownloadContainer] d, [Container] c
 -- они будут отправлены, содержит цифру 5. Список упорядочить по номеру заказа.
 
 select b.Id, d.Id from [Booking] b, [DownloadContainer] d
-	where d.IdShip = 5 and d.IdBooking = b.Id and b.Weight > 100 order by b.Id
+	where charindex('5', d.IdShip) > 0 and d.IdBooking = b.Id and b.Weight > 100 order by b.Id
 
 --5. Выдать время заказа перевозки груза, имена кораблей и дату их отправления, для которых время заказа с 10:10 до 20:00 1 июля 2005 года.
 
@@ -27,13 +27,14 @@ select b.Id, s.Name, s.OutputTime from [Booking] b, [Ship] s, [DownloadContainer
 
 --1. Посчитать общий вес всех пустых контейнеров в первой группе контейнеров.
 
-select sum(c.Weight) from [Container] c where c.IsUsed = 0
+select sum(c.Weight) from [Container] c, [DownloadContainer] d
+	where d.Weight = c.Weight and d.IdBooking = 1
 
 --2. Получить список фирм, отсортированный по количеству контактных лиц, для которых оно является представителем.
 
 select t.Company from
-(select [Company], COUNT(*) AS "Number of agents" from [Client] 
-	GROUP BY [Company]) t order by t.[Number of agents]
+(select [Company], COUNT(*) AS "Agents" from [Client] 
+	GROUP BY [Company]) t order by t.[Agents]
 	
 --3. Выбрать постоянных клиентов корабля Титаник (не менее 2 заказов)
 
