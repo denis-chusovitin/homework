@@ -33,12 +33,12 @@ namespace Lab3
             Console.WriteLine(Resources.Greeting);
 
             DateTime localDate = DateTime.Now;
-       /*     if (DateTime.Now.DayOfWeek == DayOfWeek.Sunday)
+            if (DateTime.Now.DayOfWeek == DayOfWeek.Sunday)
             {
                 Console.WriteLine(Resources.SundayExcuse);
                 return;
             }
-            */
+            
             Console.WriteLine(Resources.PairAmountEnter);
 
             int pairAmount;
