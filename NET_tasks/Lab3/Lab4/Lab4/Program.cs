@@ -4,7 +4,7 @@ using Lab4.Properties;
 
 namespace Lab4
 {
-    class Program
+    internal static class Program
     {
         private static ConsoleKey[] exitKeys = { ConsoleKey.Q, ConsoleKey.F10 };
         private static bool IsExitKey(ConsoleKey key)

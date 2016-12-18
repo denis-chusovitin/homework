@@ -12,7 +12,7 @@ namespace Lab2
 
             var stringToCheck = Console.ReadLine();
 
-            while (stringToCheck.Length > 0)
+            while (stringToCheck != null && stringToCheck.Length > 0)
             {
                 if (PalindromeChecker.IsPalindrome(stringToCheck))
                 {

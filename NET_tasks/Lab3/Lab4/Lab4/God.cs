@@ -42,15 +42,8 @@ namespace Lab4
 
         private string GetName(Human human)
         {
-            try
-            {
-                var name = human.GetType().GetMethods()[2].Invoke(human, null).ToString(); //get_Name
-                return name;
-            }
-            catch (ArgumentException ex)
-            {
-                throw ex;
-            }
+            var name = human.GetType().GetMethods()[2].Invoke(human, null).ToString(); //get_Name
+            return name;
         }
 
         private IHasName CreateChildOrBook(string childType, string childName, string parentName) 
@@ -89,11 +82,9 @@ namespace Lab4
             return null;
         }
 
-        public God(bool isLikeCheck)
+        public God(bool isLikeCheck = true)
         {
             this.isLikeCheck = isLikeCheck;
         }
-
-        public God() : this(true) { }
     }
 }

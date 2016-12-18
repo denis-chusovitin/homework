@@ -56,7 +56,6 @@
             this.ProgressPresenter.Name = "ProgressPresenter";
             this.ProgressPresenter.Size = new System.Drawing.Size(185, 41);
             this.ProgressPresenter.TabIndex = 3;
-            this.ProgressPresenter.Load += new System.EventHandler(this.ProgressPresenterViewLoad);
             // 
             // ExamView
             // 

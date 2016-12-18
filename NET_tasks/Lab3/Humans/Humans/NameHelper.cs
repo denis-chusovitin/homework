@@ -4,10 +4,10 @@ namespace Humans
 {
     public static class NameHelper
     {
-        static Random rnd = new Random();
+        private static Random rnd = new Random();
 
-        static string[] maleNames = { "Владимир", "Константин", "Денис", "Тарас", "Иван", "Степан" };
-        static string[] femaleNames = { "Мария", "Анастасия", "Анна", "Евгения", "Елена", "Ольга" };
+        private static string[] maleNames = { "Владимир", "Константин", "Денис", "Тарас", "Иван", "Степан" };
+        private static string[] femaleNames = { "Мария", "Анастасия", "Анна", "Евгения", "Елена", "Ольга" };
 
         public static string GetRandomName(Gender gender)
         {

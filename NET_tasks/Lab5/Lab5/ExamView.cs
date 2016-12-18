@@ -33,10 +33,5 @@ namespace Lab5
 
             ProgressPresenter.Init(this, studentAmount);
         }
-
-        private void ProgressPresenterViewLoad(object sender, EventArgs e)
-        {
-
-        }
     }
 }

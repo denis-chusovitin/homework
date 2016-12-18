@@ -5,9 +5,11 @@ namespace Lab3
 {
     public static class HumanGenerator
     {
-        static Random rnd = new Random();
+        private static Random rnd = new Random();
 
-        static int humanTypeAmount = Enum.GetValues(typeof(HumanType)).Length;
+        private static int humanTypeAmount = Enum.GetValues(typeof(HumanType)).Length;
+
+        private const int studentTypeAmount = 2;
 
         private static Human SelectHuman(Gender gender)
         {
@@ -37,7 +39,7 @@ namespace Lab3
             }
             else
             {
-                if (rnd.Next(0, 2) == 0)
+                if (rnd.Next(0, studentTypeAmount) == 0)
                 {
                     return new Student(gender);
                 }

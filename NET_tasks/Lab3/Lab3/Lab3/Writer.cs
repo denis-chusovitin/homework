@@ -3,7 +3,7 @@ using Humans;
 
 namespace Lab3
 {
-    static class Writer
+    internal static class HumanPrinter
     {
         private static void PrintStudent(Student st)
         {

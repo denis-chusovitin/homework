@@ -6,7 +6,7 @@ namespace Lab5
     {
         public ManualResetEvent ExamEvent { get; }
         private object ExamLocker = new object();
-        private ExamView View;
+        private ExamController controller;
 
         public void ExamStart()
         {
@@ -18,12 +18,12 @@ namespace Lab5
             lock (ExamLocker)
             {
                 Thread.Sleep(Generator.GetRandomExamPassTime());
-                View.AddStudent(st, Generator.GetRandomMark());
+                controller.AddStudentToView(st, Generator.GetRandomMark());
             }
         } 
-        public Dean(ExamView view)
+        public Dean(ExamController controller)
         {
-            View = view;
+            this.controller = controller;
             ExamEvent = new ManualResetEvent(false);
         }
     }

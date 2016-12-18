@@ -5,15 +5,22 @@ namespace Lab5
     public sealed class ExamController
     {
         private Dean Dean;
+        private ExamView view;
 
         private void ExamStart()
         {
             Dean.ExamStart();
         }
 
-        public ExamController(Dean dean, int studentAmount)
+        public void AddStudentToView(Student student, int mark)
         {
-            Dean = dean;
+            view.AddStudent(student, mark);
+        }
+
+        public ExamController(ExamView view, int studentAmount)
+        {
+            Dean = new Dean(this);
+            this.view = view;
 
             for (int i = 0; i < studentAmount; i++)
             {

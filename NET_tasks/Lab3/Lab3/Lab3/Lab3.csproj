@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="God.cs" />
+    <Compile Include="GodHelper.cs" />
     <Compile Include="HumanGenerator.cs" />
     <Compile Include="HumanType.cs" />
     <Compile Include="Program.cs" />

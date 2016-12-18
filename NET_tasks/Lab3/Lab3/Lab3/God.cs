@@ -9,6 +9,7 @@ namespace Lab3
     {
         private List<Human> humans = new List<Human>();
         private List<Human> pairedHumans = new List<Human>();
+
         public double this[int i] 
         {
             get
@@ -29,6 +30,7 @@ namespace Lab3
                 }        
             }
         }
+
         public double GetTotalMoney()
         {
             double sum = 0;
@@ -39,14 +41,17 @@ namespace Lab3
 
             return sum;
         }
+
         public void CreateHuman()
         {
             humans.Add(HumanGenerator.GenRandomHuman());
         }
+
         public void CreateHuman(Gender sex)
         {
             humans.Add(HumanGenerator.GenRandomHuman(sex));
         }
+
         public void CreatePair(Human human)
         {
             if (human == null)
